@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -15,6 +15,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +29,31 @@
     <Content Remove="$(SpaRoot)**" />
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201023131346_InitialCreate.cs" />
+    <Compile Remove="Migrations\20201023131346_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20201023235052_Nationality.cs" />
+    <Compile Remove="Migrations\20201023235052_Nationality.Designer.cs" />
+    <Compile Remove="Migrations\20201024001158_AddBlogCreatedTimestamp.cs" />
+    <Compile Remove="Migrations\20201024001158_AddBlogCreatedTimestamp.Designer.cs" />
+    <Compile Remove="Migrations\20201024001325_AddPersonNationality.cs" />
+    <Compile Remove="Migrations\20201024001325_AddPersonNationality.Designer.cs" />
+    <Compile Remove="Migrations\20201024024006_InitialCreate.cs" />
+    <Compile Remove="Migrations\20201024024006_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20201024024550_AddPersonNationality.cs" />
+    <Compile Remove="Migrations\20201024024550_AddPersonNationality.Designer.cs" />
+    <Compile Remove="Migrations\20201024024701_AddPersonNationality.cs" />
+    <Compile Remove="Migrations\20201024024701_AddPersonNationality.Designer.cs" />
+    <Compile Remove="Migrations\20201024025453_InitialCreate.cs" />
+    <Compile Remove="Migrations\20201024025453_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20201024030024_InitialCreate.cs" />
+    <Compile Remove="Migrations\20201024030024_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20201024030105_AddPersonNationality.cs" />
+    <Compile Remove="Migrations\20201024030105_AddPersonNationality.Designer.cs" />
+    <Compile Remove="Migrations\20201024030256_AddPersonNationality.cs" />
+    <Compile Remove="Migrations\20201024030256_AddPersonNationality.Designer.cs" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

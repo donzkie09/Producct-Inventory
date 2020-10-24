@@ -2,9 +2,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Product_Inventory.Models;
+using Product_Inventory.Repository;
+using Product_Inventory.Service;
 
 namespace Product_Inventory
 {
@@ -26,6 +30,13 @@ namespace Product_Inventory
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddDbContext<ProductInventoryContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+
+
+            services.AddTransient<IPersonRepository, PersonRepository>();
+            services.AddTransient<IPersonService, PersonService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
